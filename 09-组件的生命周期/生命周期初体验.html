@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
-
 </head>
 <body>
     <div id = "div" >
-
     </div>
-
 </body>
 <!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
 <script src="../React-js/react.development.js" type="text/javascript"></script>
@@ -35,12 +31,12 @@
         state = {time:1};
 
         stop = () => {
-            //卸载组件
+            //卸载组件,也可在此处clearInterval(this.Inter)
             ReactDOM.unmountComponentAtNode(document.getElementById("div"))
           
         }
 
-        //在组建挂载(渲染之后进行)
+        //在组件挂载(渲染之后进行)
         componentDidMount(){
             //定时器
             this.Inter = setInterval(()=>{

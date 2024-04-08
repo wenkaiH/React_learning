@@ -31,8 +31,7 @@
             render(){
                 console.log(this.props.arr);
                 let com = this.props.arr.map((item,index)=>
-                        <GetLi value={item} key = {index} />
-                    );
+                        <GetLi value={item} key={index} />);
                 console.log(com);
                 return <ul>{com}</ul>
             }

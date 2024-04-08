@@ -1,6 +1,6 @@
 ---
 title: react
-date: 2021-01-20 11:13:20
+date: 2022-09-20 15:30:20
 ---
 
 > 以下是观看尚硅谷React课程所做的笔记。
@@ -36,7 +36,7 @@ React用于构建用户界面的JS库。是一个将数据渲染为HTML视图的
 ``` cmd
 react.development.js
 react-dom.development.js
-babel.min.js 
+babel.min.js
 ```
 
 2.创建一个容器
@@ -61,7 +61,7 @@ babel.min.js
         // 1.创建虚拟DOM
         const VDOM = <h1>Hello</h1>  //这个地方使用的是JSX语法，不需要加""
         // 2.渲染，如果有多个渲染同一个容器，后面的会将前面的覆盖掉
-        ReactDOM.render(VDOM,document.getElementById("test"));        
+        ReactDOM.render(VDOM,document.getElementById("test"));
 </script>
 </html>
 ```
@@ -109,7 +109,7 @@ babel.min.js
 <body>
     <!-- 准备好容器 -->
     <div id="test">
-        
+
     </div>
 </body>
 <!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
@@ -213,13 +213,13 @@ ReactDOM.Render(<Welcom name = "ss" />,document.getElementById("div"));
 
 下面，我们通过一个案例更好的理解组件：【只关注与核心代码】
 
-我们发现组件是可以包含中使用的， 而且如果创建的数组，必须要代一个key。数组元素中使用的 key 在其兄弟节点之间应该是独一无二的。然而，它们不需要是全局唯一的。当我们生成两个不同的数组时，我们可以使用相同的 key 值 
+我们发现组件是可以包含中使用的， 而且如果创建的数组，必须要代一个key。数组元素中使用的 key 在其兄弟节点之间应该是独一无二的。然而，它们不需要是全局唯一的。当我们生成两个不同的数组时，我们可以使用相同的 key 值
 
 ```react
 <script type="text/babel">
 
         //创建一个组件<li>
-        function GetLi(props){      
+        function GetLi(props){
             return <li>{props.value}</li>
         };
 
@@ -237,7 +237,7 @@ ReactDOM.Render(<Welcom name = "ss" />,document.getElementById("div"));
                 return <ul>{com}</ul>
             }
         }
-        
+
         let num = [1,2,3,4]
         //2.渲染组件
         ReactDOM.render(<MyComponent  arr={num}/>,document.getElementById("test");
@@ -267,7 +267,7 @@ state是组件对象最重要的属性，值是对象（可以包含多个key-va
 <body>
     <!-- 准备好容器 -->
     <div id="test">
-        
+
     </div>
 </body>
 <!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
@@ -290,7 +290,7 @@ state是组件对象最重要的属性，值是对象（可以包含多个key-va
             render(){ //这个This也是实例对象
                 //如果加dem()，就是将函数的回调值放入这个地方
                 //this.dem这里面加入this，并不是调用，只不过是找到了dem这个函数，在调用的时候相当于直接调用，并不是实例对象的调用
-                return <h1 onClick = {this.dem1}>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>    
+                return <h1 onClick = {this.dem1}>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>
             }
             //通过state的实例调用dem的时候，this就是实例对象
             dem(){
@@ -331,7 +331,7 @@ class St extends React.Component{
     //可以直接对其进行赋值
     state = {isHot:10};
     render(){ //这个This也是实例对象
-        return <h1 onClick = {this.dem}>点击事件</h1> 
+        return <h1 onClick = {this.dem}>点击事件</h1>
     }
 //箭头函数 [自定义方法--->要用赋值语句的形式+箭头函数]
     dem = () =>{
@@ -382,14 +382,14 @@ dem = () =>{
 
 ```react
  dem = () =>{
-                
+
                 this.setState({
                     isHot: this.state.isHot + 1,
-                    
+
                 })
                 this.setState({
                     isHot: this.state.isHot + 1,
-                    
+
                 })
                 this.setState({
                     isHot: this.state.isHot + 888
@@ -411,7 +411,7 @@ dem = () =>{
 <body>
     <!-- 准备好容器 -->
     <div id="test">
-        
+
     </div>
 </body>
 <!-- 引入依赖 ,引入的时候，必须就按照这个步骤-->
@@ -424,7 +424,7 @@ dem = () =>{
             //可以直接对其进行赋值
             state = {isHot:true};
             render(){ //这个This也是实例对象
-                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>    
+                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>
                 //或者使用{()=>this.dem()也是可以的}
             }
             //箭头函数 [自定义方法--->要用赋值语句的形式+箭头函数]
@@ -434,7 +434,7 @@ dem = () =>{
                 this.setState({isHot:!state});
             }
         }
-        ReactDOM.render(<St />,document.getElementById("test"));       
+        ReactDOM.render(<St />,document.getElementById("test"));
 </script>
 ```
 
@@ -544,7 +544,7 @@ react对此提供了相应的解决方法：
 ```react
 <script type="text/babel">
 
-    
+
     class Person extends React.Component{
         render(){
             //props是只读的
@@ -566,15 +566,15 @@ react对此提供了相应的解决方法：
         static defaultProps = {
             sex:"不男不女",
             age:18
-        }   
-        
+        }
+
     }
     //在js中可以使用{...p}来复制一个对象，但是这个地方并不是复制对象，而是babel+react通过展开运算符，展开了一个对象
     //但是只能在标签中进行使用
     //const p = {name:"张三",age:"18",sex:"女"}   {14}就代表的是数值
     //ReactDOM.render(<Person {...p}/>,document.getElementById("div"));
     ReactDOM.render(<Person name="sss" age = {14} speak="8"/>,document.getElementById("div"));
-    
+
 
     function speak(){
         console.log("这个是一个函数")
@@ -603,7 +603,7 @@ function Person(props){
 
 ## Refs
 
- Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法中创建的 React 元素。 
+ Refs 提供了一种方式，允许我们访问 DOM 节点或在 render 方法中创建的 React 元素。
 
 Refs主要提供了三种方式：
 
@@ -705,7 +705,7 @@ saveName = (event) =>{
 
 先来说说受控组件：
 
- 使 React 的 state 成为“唯一数据源”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。 
+ 使 React 的 state 成为“唯一数据源”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。
 
 ```react
 saveName = (event) =>{
@@ -771,9 +771,9 @@ class Login extends React.Component{
 
 ```react
  class Login extends React.Component{
- 
+
         state = {name:"",pwd:""};
-		
+
 		//返回一个函数
         saveType = (type) =>{
             return (event) => {
@@ -866,11 +866,11 @@ class Login extends React.Component{
        componentWillUnmonut(){
             console.log("A --- componentWillUnmonut");
        }
-     
+
    }
    class B extends React.Component{
        render(){
-           return(   
+           return(
                 <div>
                     <h1>这个是B组件,传递过来的是：{this.props.name}</h1>
                 </div>
@@ -926,7 +926,7 @@ class Login extends React.Component{
 
 **getSnapshotBeforeUpdate(prevProps, prevState)**
 
- `getSnapshotBeforeUpdate()` 在最近一次渲染输出（提交到 DOM 节点）之前调用。它使得组件能在发生更改之前从 DOM 中捕获一些信息（例如，滚动位置）。此生命周期的任何返回值将作为参数传递`componentDidUpdate()`。 
+ `getSnapshotBeforeUpdate()` 在最近一次渲染输出（提交到 DOM 节点）之前调用。它使得组件能在发生更改之前从 DOM 中捕获一些信息（例如，滚动位置）。此生命周期的任何返回值将作为参数传递`componentDidUpdate()`。
 
 > 补充一下：componentDidUpdate(prevProps, prevState, snapshot)
 >
@@ -1051,7 +1051,7 @@ addObject = () =>{
 
 如下动图所示：
 
- ![原始对象数组](./react/addObject.gif) 
+ ![原始对象数组](./react/addObject.gif)
 
 这样看，虽然完成了功能。但是其实存在效率上的问题，	我们先来看一下两个前后组件状态的变化：
 
@@ -1067,7 +1067,7 @@ key = 0 的时候 旧的虚拟DOM 内容是张三  新的虚拟DOM为王五 ，r
 
 key = 1 的时候 旧的虚拟DOM 内容是李四，新的虚拟DOM为张三，react认为内容改变，从而重新创建新的真实DOM
 
-key = 2 的时候 旧的虚拟DOM没有，创建新的真实DOM 
+key = 2 的时候 旧的虚拟DOM没有，创建新的真实DOM
 
 这样原本有两个虚拟DOM可以复用，但都没有进行复用，完完全全的都是新创建的；这就导致效率极大的降低。
 
@@ -1097,7 +1097,7 @@ Diff算法其实就是react生成的新虚拟DOM和以前的旧虚拟DOM的比�
 
 - 如果旧的虚拟DOM中找到了与新虚拟DOM相同的key:
   - 如果内容没有变化，就直接只用之前旧的真实DOM
-  - 如果内容发生了变化，就生成新的真实DOM			
+  - 如果内容发生了变化，就生成新的真实DOM
 
 - 如果旧的虚拟DOM中没有找到了与新虚拟DOM相同的key:
   - 根据数据创建新的真实的DOM,随后渲染到页面上
@@ -1110,13 +1110,13 @@ react提供了一个用于创建react项目的脚手架库：create-react-app
 
 1.全局安装：npm i -g create-react-app
 
-2.创建项目：create-react-app 项目名  
+2.创建项目：create-react-app 项目名
 
 在这一步，有可能会出现：
 
 ![不是内部命令](./react/1611803687193.png)
 
-这样可以直接使用：npx create-react-app 项目名 
+这样可以直接使用：npx create-react-app 项目名
 
 3.等待下载完成，进入项目文件夹，运行一下
 
@@ -1158,10 +1158,10 @@ npm start   //启动这个项目
     />
     <!--用于指定网页添加到手机主屏幕后的图标（仅仅支持ios）-->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
- 
+
     <!--应用加壳时候的配置文件 -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  
+
     <title>React App</title>
   </head>
   <body>
@@ -1323,7 +1323,7 @@ React本身只关注与页面，并不包含发送ajax请求的代码，所以�
 > 在package.json中追加如下配置
 
 ```json
-"proxy":"请求的地址"      "proxy":"http://localhost:5000"  
+"proxy":"请求的地址"      "proxy":"http://localhost:5000"
 ```
 
 说明：
@@ -1344,7 +1344,7 @@ React本身只关注与页面，并不包含发送ajax请求的代码，所以�
 
    ```js
    const proxy = require('http-proxy-middleware')
-   
+
    module.exports = function(app) {
      app.use(
        proxy('/api1', {  //api1是需要转发的请求(所有带有/api1前缀的请求都会转发给5000)
@@ -1357,7 +1357,7 @@ React本身只关注与页面，并不包含发送ajax请求的代码，所以�
          */
          pathRewrite: {'^/api1': ''} //去除请求前缀，保证交给后台服务器的是正常请求地址(必须配置)
        }),
-       proxy('/api2', { 
+       proxy('/api2', {
          target: 'http://localhost:5001',
          changeOrigin: true,
          pathRewrite: {'^/api2': ''}
@@ -1418,7 +1418,7 @@ PubSub.publish("订阅的消息名称",传递的数据)
 
 await右边是一个表达式，如果该表达式返回的是一个Promise对象，则左边接收的结果就是该Promise对象成功的结果，如果该Promise对象失败了，就必须使用try..catch来捕获。如果该表达式返回的是是一个不是promise对象，则左边接受的就是该表达式的返回值。
 
- 当 [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) 关键字与异步函数一起使用时，它的真正优势就变得明显了 —— 事实上， **await 只在异步函数里面才起作用**。它可以放在任何异步的，基于 promise 的函数之前。它会暂停代码在该行上，直到 promise 完成，然后返回结果值。在暂停的同时，其他正在等待执行的代码就有机会执行了。 
+ 当 [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) 关键字与异步函数一起使用时，它的真正优势就变得明显了 —— 事实上， **await 只在异步函数里面才起作用**。它可以放在任何异步的，基于 promise 的函数之前。它会暂停代码在该行上，直到 promise 完成，然后返回结果值。在暂停的同时，其他正在等待执行的代码就有机会执行了。
 
 举个例子：
 
@@ -1582,7 +1582,7 @@ match:
  这是因为Link相当于是把标签写死了，不能去改变什么。*/}
 
 <NavLink  ctiveClassName="ss" className="list-group-item"  to="/about">About</NavLink>
-<NavLink className="list-group-item"  to="/home">Home</NavLink> 
+<NavLink className="list-group-item"  to="/home">Home</NavLink>
 ```
 
 但是可能一个导航又很多标签，如果这样重复的写NavLink也会造成很多的重复性的代码问题。
@@ -1633,7 +1633,7 @@ match:
 1.样式加载使用绝对位置
 
 ```react
- <link href="/css/bootstrap.css" rel="stylesheet"> 
+ <link href="/css/bootstrap.css" rel="stylesheet">
 ```
 
 2.使用 %PUBLIC_URL%
@@ -1680,7 +1680,7 @@ react默认是开启模糊匹配的。
 <Route exact path="/home" component={Home}/>
 ```
 
-​	
+​
 
 ## 初始化路由
 
@@ -1723,7 +1723,7 @@ Home.jsx:
     	<MyNavLink  to = "/home/message">Message</MyNavLink>
     </li>
     </ul>
-    
+
     <Switch>
         <Route path = "/home/news" component={News} />
         <Route path = "/home/message" component={Message} />
@@ -1732,7 +1732,7 @@ Home.jsx:
 </div>
 ```
 
- react中路由的注册是有顺序的，因此在匹配的时候也是按照这个顺序进行的，因此会先匹配父组件中的路由 
+ react中路由的注册是有顺序的，因此在匹配的时候也是按照这个顺序进行的，因此会先匹配父组件中的路由
 
 比如上面的 /home/news的路由处理过程：
 
@@ -1741,4 +1741,3 @@ Home.jsx:
 2.在去Home组件里面去匹配相应的路由，从而找到了/home/news进行匹配，因此找到了News组件。
 
 但是如果开启精确匹配，就会在第一步的时候卡住，这个时候就走不下去了。**因此不要轻易的使用精确匹配**
-

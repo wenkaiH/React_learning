@@ -21,20 +21,22 @@
 <script type="text/babel">
         //1.创建组件
         class St extends React.Component{
+            //构造器调用1次
             constructor(props){
                 super(props);
                 this.state = {isHot:true,win:"ss"};
-                //找到原型的dem，根据dem函数创建了一个dem1的函数，并且将实例对象的this赋值过去
-                // this.dem1 = this.dem.bind(this);
+                //找到原型的dem，根据dem函数创建了一个dem的函数，并且将实例对象的this赋值过去
+                //从而支持function dem(){}中使用this不会丢失，仍指向St实例对象
+                // this.dem = this.dem.bind(this);
             }
             //render会调用1+n次【1就是初始化的时候调用的，n就是每一次修改state的时候调用的】
             render(){ //这个This也是实例对象
                 //如果加dem()，就是将函数的回调值放入这个地方
-                //this.dem这里面加入this，并不是调用，只不过是找到了dem这个函数，在调用的时候相当于直接调用，并不是实例对象的调用
-                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot?"炎热":"凉爽"}</h1>    
+                //this.dem这里面加入this，并不是调用，只不过是找到了dem这个函数，在调用的时候相当于直接调用，并不是实例对象的调用，存在this的隐式丢失问题
+                return <h1 onClick = {this.dem}>今天天气很{this.state.isHot?"炎热":"凉爽"}{this.state.win}</h1>    
             }
-            //通过state的实例调用dem的时候，this就是实力对象
-            //类中的方法默认开启了严格模式，所以this是undefined
+            //通过state的实例调用dem的时候，this就是实例对象
+            //类中的方法默认开启了严格模式，所以this是undefined(注 这里使用箭头函数改变this的指向)
             dem = () =>{
                 const state =  this.state.isHot;
                  //状态中的属性不能直接进行更改，需要借助API
@@ -49,8 +51,6 @@
         // document.getElementById("title").addEventListener("click",()=>{
         //     alert("4");
         // })
-       
-        
 </script>
 
 </html>

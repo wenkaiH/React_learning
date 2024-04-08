@@ -27,21 +27,21 @@
 <script type="text/babel">
         // 1.创建函数式组件 
         function Demo(){
-            console.log(this); //这个this是undefined,因为babel编译之后开启了严格模式
-            return <h2>w shi yi ge zu jian</h2>
+          console.log(this); //this是undefined,因为babel编译之后开启了严格模式，不指向window
+          return <h2>我是一个组件</h2>
         }
         //函数式组件还可以添加参数
         function Show(props){
             return <h1>Hello {props.age}</h1>
         }
         //2.渲染组件
-
         ReactDOM.render(<Demo />,document.getElementById("test"));
         ReactDOM.render(<Show age="ss" />,document.getElementById("div"));
+        
         //注意事项：
         /*
         1.组件的首字母必须是大写，并且有返回值
-        2.在渲染的时候必须<组件名 />
+        2.在渲染的时候必须<组件名 />，即闭合标签
         */
 
        //执行过程：

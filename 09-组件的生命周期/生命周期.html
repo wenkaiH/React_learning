@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-   
-
 </head>
 <body>
     <div id = "div" >
@@ -81,20 +79,18 @@
      
    }
    class B extends React.Component{
+      //父组件进行了更新，子组件先执行这个
+      componentWillReceiveProps(){
+        console.log("B --- componentWillReceiveProps");
+       }
        render(){
            return(   
                 <div>
                     <h1>这个是B组件,传递过来的是：{this.props.name}</h1>
-                    
                 </div>
            )
        }
-       //父组件进行了更新，子组件先执行这个
-       componentWillReceiveProps(){
-        console.log("A --- componentWillReceiveProps");
-       }
    }
-
 
     ReactDOM.render(<A   />,document.getElementById("div"));
 

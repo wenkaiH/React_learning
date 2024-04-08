@@ -24,18 +24,16 @@
 
     class Dom extends React.Component{
         //通过API，创建React的容器，相当于对于回调函数创建了一个相应的API，省略了中间环节
-        //但是这个容器是专门专用的，所以每一个ref都需要创建这个
+        //但是这个容器是专人专用的，所以每一个ref都需要创建这个
         MyRef = React.createRef();
         MyRef1 = React.createRef();
-        
+
         btnOnClick = () =>{
             //创建之后，将自身节点，传入current中
             console.log(this.MyRef.current.value);
-            //alert(this.refs.dian.value);
         }
         inputBlur = () =>{
-            console.log(this);
-            //lert(this.refs.shiqu   .value);
+            console.log(this.MyRef1.current.value);
         }
         render(){
             return (
@@ -49,6 +47,5 @@
     }
 
     ReactDOM.render(<Dom />,document.getElementById("div"));
-
 </script>
 </html>

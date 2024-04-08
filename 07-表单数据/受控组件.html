@@ -23,18 +23,18 @@
 <script type="text/babel">
 
 /*
-    受控制组件，就是使用事件和statem,输入类的组件，就是将内容绑定到state中的，在使用的时候使用state里面的   
+    受控制组件,就是使用事件和state,输入类的组件就是将内容绑定到state中的，在使用时 用state里面的   
 */
 
     class Login extends React.Component{
 
         state = {name:"",pwd:""};
 
-       /* login = (event) =>{
+       login = (event) =>{
             event.preventDefault(); //阻止表单提交
-            console.log(this.name.value);
-            console.log(this.pwd.value);
-        }*/
+            console.log(this.state.name);
+            console.log(this.state.pwd);
+        }
 
         saveName = (event) =>{
             this.setState({name:event.target.value});

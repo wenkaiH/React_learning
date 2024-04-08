@@ -28,7 +28,7 @@
             alert(this.refs.dian.value);
         }
         inputBlur = () =>{
-            alert(this.refs.shiqu   .value);
+            alert(this.refs.shiqu.value);
         }
         render(){
             return (
@@ -40,7 +40,7 @@
             )
         }
     }
-
+    //注意：字符串形式的ref不推荐使用，可能被弃用！
     ReactDOM.render(<Dom />,document.getElementById("div"));
 
 </script>

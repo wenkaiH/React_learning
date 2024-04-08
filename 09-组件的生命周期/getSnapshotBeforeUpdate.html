@@ -49,6 +49,7 @@
 
         getSnapshotBeforeUpdate(){
             return this.refs.list.scrollHeight;
+            //作为参数传递给componentDidupdate
         }
 
         componentDidUpdate(preProps,preState,height){
@@ -57,7 +58,6 @@
 
         render(){
             return (
-
                 <div ref = "list" className = "list">{
                     this.state.num.map((n,index)=>{
                     return <div className="news" key={index} >新闻{n}</div>

@@ -26,7 +26,7 @@
                 <h1>hhh</h1>
                 <ul>
                     { //{}里面只能放表达式
-                        //如果渲染的是一个列表，每一行必须要有一个key
+                        //如果渲染的是一个列表，每一行必须要有一个key（index索引不建议作为key）
                         data.map((item,index)=>{
                             return <li key = {index}>{item}</li>
                         })
@@ -36,8 +36,6 @@
         )
         // 2.渲染，如果有多个渲染同一个容器，后面的会将前面的覆盖掉
         ReactDOM.render(VDOM,document.getElementById("test"));
-        
-
 </script>
 
 </html>

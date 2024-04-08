@@ -34,7 +34,7 @@
                 </ul>
             )
         }
-        //对组件的属性对其进行限制
+        //对组件的属性对其进行限制 给类自身添加属性 static，不添加则表示添加到类的实例对象
         static propTypes = {
             name:PropTypes.string.isRequired,
             sex:PropTypes.string,
@@ -47,13 +47,10 @@
         }   
         
     }
-    
-   
-    
     //在js中可以使用{...p}来复制一个对象，但是这个地方并不是复制对象，而是babel+react通过展开运算符，展开了一个对象
     //但是只能在标签中进行使用
     //const p = {name:"张三",age:"18",sex:"女"}   {14}就代表的是数值
-    ReactDOM.render(<Person name="sss" age = {14} speak="8"/>,document.getElementById("div"));
+    ReactDOM.render(<Person name="sss" age = {14} speak={speak}/>,document.getElementById("div"));
     //ReactDOM.render(<Person {...p}/>,document.getElementById("div"));
 
     function speak(){

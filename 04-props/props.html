@@ -32,6 +32,7 @@
 
     class Person extends React.Component{
         render(){
+            // const {name,age,sex}=this.props; 提前解构
             return (
                 <ul>
                     <li>{this.props.name}</li>
@@ -41,8 +42,7 @@
             )
         }
     }
-    //在js中可以使用{...p}来复制一个对象，但是这个地方并不是复制对象，而是babel+react通过展开运算符，展开了一个对象
-    //但是只能在标签中进行使用
+    //在js中ES6可以使用{...p}来复制一个对象，但是这个地方并不是复制对象，而是babel+react通过展开运算符，展开了一个对象, 但是只能在标签中进行使用
     const p = {name:"张三",age:"18",sex:"女"}
    // ReactDOM.render(<Person name="tom" age = "41" sex="男"/>,document.getElementById("div"));
    ReactDOM.render(<Person {...p}/>,document.getElementById("div"));

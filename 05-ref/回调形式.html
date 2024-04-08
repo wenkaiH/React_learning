@@ -21,33 +21,32 @@
 <script src="../React-js/prop-types.js"></script>
 
 <script type="text/babel">
-
     class Dom extends React.Component{
 
         state = {isHot:true};
 
+        btnOnClick2 = () =>{
+            alert(`isHot的值为：${this.state.isHot}`)
+            this.setState({isHot:!this.state.isHot});
+        }
         btnOnClick = () =>{
             alert(this.dian.value);
         }
         inputBlur = () =>{
             alert(this.shiqu.value);
         }
-        btnOnClick2 = () =>{
-            this.setState({isHot:!this.state.isHot});
-        }
         isRef = (self) =>{
             console.log(self);
             this.dian = self;
-            console.log("sss")
         }
         render(){
             //回调形式的ref 在ref中执行回调函数，将自身作为参数传递给回调函数
             return (
                 <div>
-                {/*<input ref={self =>{ this.dian = self;console.log(self)}} type="text" placeholder="点击弹出" />&nbsp;*/}
-                <input ref={this.isRef} type="text" placeholder="点击弹出" />&nbsp;
+                    {/* jsx注释代码的方式：<input ref={self =>{ this.dian = self;console.log(self)}} type="text" placeholder="点击弹出" />&nbsp;*/}
+                    <input ref={this.isRef} type="text" placeholder="点击弹出" />&nbsp;
                     <button onClick = {this.btnOnClick}>点击</button>&nbsp;
-                    <button onClick = {this.btnOnClick2}>点击</button>&nbsp;
+                    <button onClick = {this.btnOnClick2}>点击改变state</button>&nbsp;
                     <input ref={self => this.shiqu = self} onBlur={this.inputBlur} type="text" placeholder="失去焦点弹出弹出" />
                 </div>
             )

@@ -31,21 +31,14 @@
             dem = (e) =>{
                 console.log(e);
                 e.preventDefault();
+                let num=++this.state.isHot
+                this.setState({isHot:num});
             }
             // componentDidMount(){
             //     document.getElementById("test").addEventListener("click",()=>{
             //         this.setState({
             //             isHot: this.state.isHot + 1
             //         })
-                   
-            //         this.setState({
-            //             isHot: this.state.isHot + 1
-            //         })
-                    
-            //         this.setState({
-            //             isHot: this.state.isHot + 1
-            //         })
-            //     })
             // }
         }
         ReactDOM.render(<St />,document.getElementById("test"));
